@@ -2,35 +2,32 @@ import React from "react";
 import {
   SafeAreaView,
   View,
-  ImageSourcePropType,
+  
   Dimensions,
   Image,
+  Text
 } from "react-native";
 import Carousel from "react-native-snap-carousel";
+import {ImageSourcePropType} from 'deprecated-react-native-prop-types';
+
 
 const { height: screenHeight, width: screenWidth } = Dimensions.get("window");
 
 interface Slide {
-  title: string;
-  desc: string;
   img: ImageSourcePropType;
 }
 
 const items: Slide[] = [
   {
-    title: "Titulo 1",
-    desc: "Ea et eu enim fugiat sunt reprehenderit sunt aute quis tempor ipsum cupidatat et.",
     img: require("../../assets/pic.jpg"),
   },
+
   {
-    title: "Titulo 2",
-    desc: "Anim est quis elit proident magna quis cupidatat culpa labore Lorem ea. Exercitation mollit velit in aliquip tempor occaecat dolor minim amet dolor enim cillum excepteur. ",
-    img: require("../../assets/norte.jpg"),
+    img: require("../../assets/Patagonia.jpeg"),
   },
+
   {
-    title: "Titulo 3",
-    desc: "Ex amet duis amet nulla. Aliquip ea Lorem ea culpa consequat proident. Nulla tempor esse ad tempor sit amet Lorem. Velit ea labore aute pariatur commodo duis veniam enim.",
-    img: require("../../assets/surFaro.jpg"),
+    img: require("../../assets/Sur.jpeg"),
   },
 ];
 
@@ -40,16 +37,16 @@ const CarouselScreen = () => {
       <View
         style={{
           flex: 1,
-          backgroundColor: "white",
+
           justifyContent: "center",
         }}
       >
         <Image
           source={item.img}
           style={{
-            width: 600,
-            height: 600,
-            
+            width: screenWidth,
+            height: screenHeight,
+            borderRadius: 20,
           }}
         />
       </View>
@@ -62,6 +59,9 @@ const CarouselScreen = () => {
         flex: 1,
       }}
     >
+      <View>
+        <Text> Descubre Argentina</Text>
+      </View>
       <Carousel
         data={items}
         renderItem={({ item }: any) => renderItem(item)}
