@@ -7,10 +7,16 @@ const Stack = createStackNavigator();
 export const Navigator = () => {
   return (
     <Stack.Navigator screenOptions={{
-      headerShown:false
+      headerShown:false,
+      
       
     }}>
       <Stack.Screen name="Landing" component={CarouselScreen} />
     </Stack.Navigator>
   );
 };
+
+
+
+//carousel, 
+//theme

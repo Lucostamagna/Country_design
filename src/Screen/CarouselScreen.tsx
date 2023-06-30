@@ -7,6 +7,7 @@ import {
   Image,
   Text
 } from "react-native";
+import { colors } from "../Theme/Colors";
 import Carousel, {Pagination} from "react-native-snap-carousel";
 import {ImageSourcePropType} from 'deprecated-react-native-prop-types';
 
@@ -26,7 +27,7 @@ const items: Slide[] = [
 const CarouselScreen = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const renderItem = (item: Slide) => {
+  const renderItem = (item: Slide, index: number) => {
     return (
       <View
         style={{
@@ -41,11 +42,17 @@ const CarouselScreen = () => {
             width: screenWidth,
             height: screenHeight,
             borderRadius: 20,
-             resizeMode: 'cover',
+            resizeMode: 'cover'
+            
           }}
         
         />
-          
+           {index === 0 && (
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>Descubre Argentina</Text>
+          <Text style={styles.text1}> Desde la vibrante vida urbana hasta la serenidad de sus paisajes naturales, te espera un viaje inolvidable.</Text>
+        </View>
+      )}
           
       
       </View>
@@ -61,7 +68,7 @@ const CarouselScreen = () => {
     
       <Carousel
         data={items}
-        renderItem={({ item }: any) => renderItem(item)}
+        renderItem={({ item, index }: any) => renderItem(item, index)}
         sliderWidth={screenWidth}
         itemWidth={screenHeight}
         layout={'default'}
@@ -75,7 +82,7 @@ const CarouselScreen = () => {
       dotStyle={{
         width:30,
         height:2,
-        backgroundColor:'red'
+        backgroundColor:colors.text
       }}
 
       
@@ -88,17 +95,30 @@ const CarouselScreen = () => {
 
 
 const styles = StyleSheet.create({
-  textOverlay: {
-   
-   
-    alignItems: 'center',
-    backgroundColor: 'red', // Color y opacidad del fondo del texto
+  textContainer: {
+    position: 'absolute',
+    top: 99,
+    width:'50%',
+    left:-30,
+    
+    backgroundColor: 'transparent',
+    padding: 50,
+    borderRadius: 10,
   },
   text: {
-    color: '#fff', // Color del texto
-    fontSize: 16,
+    color: 'black',
+    fontSize: 26,
     fontWeight: 'bold',
-}})
+    textAlign: 'center',
+   
+  },
+  text1:{
+    fontSize: 13,
+    textAlign: 'justify',
+    color:'black'
+  }
+
+})
 
 
 export default CarouselScreen;
