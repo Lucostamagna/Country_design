@@ -1,13 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   SafeAreaView,
   View,
-  
+  StyleSheet,
   Dimensions,
   Image,
   Text
 } from "react-native";
-import Carousel from "react-native-snap-carousel";
+import Carousel, {Pagination} from "react-native-snap-carousel";
 import {ImageSourcePropType} from 'deprecated-react-native-prop-types';
 
 
@@ -18,20 +18,14 @@ interface Slide {
 }
 
 const items: Slide[] = [
-  {
-    img: require("../../assets/pic.jpg"),
-  },
-
-  {
-    img: require("../../assets/Patagonia.jpeg"),
-  },
-
-  {
-    img: require("../../assets/Sur.jpeg"),
-  },
+  {img: require("../../assets/pic.jpg"), },
+  {img: require("../../assets/Patagonia.jpeg"),},
+  {img: require("../../assets/Sur.jpeg"),},
 ];
 
 const CarouselScreen = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const renderItem = (item: Slide) => {
     return (
       <View
@@ -47,8 +41,13 @@ const CarouselScreen = () => {
             width: screenWidth,
             height: screenHeight,
             borderRadius: 20,
+             resizeMode: 'cover',
           }}
+        
         />
+          
+          
+      
       </View>
     );
   };
@@ -59,17 +58,47 @@ const CarouselScreen = () => {
         flex: 1,
       }}
     >
-      <View>
-        <Text> Descubre Argentina</Text>
-      </View>
+    
       <Carousel
         data={items}
         renderItem={({ item }: any) => renderItem(item)}
         sliderWidth={screenWidth}
         itemWidth={screenHeight}
+        layout={'default'}
+        onSnapToItem={(index)=> setActiveIndex(index)}
+        
+
+      />
+      <Pagination
+      dotsLength={items.length}
+      activeDotIndex={activeIndex}
+      dotStyle={{
+        width:30,
+        height:2,
+        backgroundColor:'red'
+      }}
+
+      
       />
     </SafeAreaView>
   );
 };
+
+
+
+
+const styles = StyleSheet.create({
+  textOverlay: {
+   
+   
+    alignItems: 'center',
+    backgroundColor: 'red', // Color y opacidad del fondo del texto
+  },
+  text: {
+    color: '#fff', // Color del texto
+    fontSize: 16,
+    fontWeight: 'bold',
+}})
+
 
 export default CarouselScreen;
