@@ -1,6 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import CarouselScreen from "../Screen/CarouselScreen";
+
+import DashboardScreen from "../Screen/DashboardScreen";
 
 
 const Stack = createStackNavigator();
@@ -11,12 +12,13 @@ export const Navigator = () => {
       
       
     }}>
-      <Stack.Screen name="Landing" component={CarouselScreen} />
+      <Stack.Screen name="Dashboard" component={DashboardScreen} />
+  
     </Stack.Navigator>
   );
 };
 
 
 
-//carousel, 
+//carousel con paginacion, 
 //theme
