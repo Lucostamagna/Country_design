@@ -15,7 +15,7 @@
 // const { height: screenHeight, width: screenWidth } = Dimensions.get("window");
 
 // interface Slide {
-//   img: img}
+//   img: ImageSourcePropType}
 
 // const items: Slide[] = [
 //   {img: require("../../assets/pic.jpg"), },

@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   SafeAreaView,
   View,
@@ -9,16 +10,26 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { colors } from '../Theme/Colors';
+
 
 const DashboardScreen = () => {
+  const navigation= useNavigation()
+
+  function goToApp(){
+     // @ts-ignore
+    navigation.navigate('HomeScreen')
+  }
+
   return (
     <View style={styles.container}>
       <ImageBackground
         source={require("../../assets/Arg.jpeg")}
         style={styles.imageBackground}
       >
-         <View style={styles.ViewIcon}>
+        <View style={styles.ViewIcon}>
           <Ionicons name="location-outline" size={45} color="black" />
         </View>
         <Text style={styles.text}>ARGENTINA</Text>
@@ -29,12 +40,17 @@ const DashboardScreen = () => {
             naturales, te espera un viaje inolvidable.
           </Text>
         </View>
-       
+
         <View style={styles.ViewBotton}>
-<Text style={styles.text2}> COMENZAR</Text>
-          <TouchableOpacity style={styles.button} activeOpacity={0.8}> 
-        
-          <Ionicons name="chevron-forward-outline" size={35} color="black" marginLeft={25} marginTop={7} />
+          <Text style={styles.text2}> COMENZAR</Text>
+          <TouchableOpacity style={styles.button} activeOpacity={0.8} onPress={goToApp}>
+            <Ionicons
+              name="chevron-forward-outline"
+              size={35}
+              color="black"
+              marginLeft={25}
+              marginTop={7}
+            />
           </TouchableOpacity>
         </View>
       </ImageBackground>
@@ -71,30 +87,27 @@ const styles = StyleSheet.create({
     marginTop: "3%",
     marginRight: "65%",
   },
-  ViewBotton:{
-width:'80%',
-height:'8%',
-borderRadius:30,
-backgroundColor:'#717D7E',
-marginTop:'100%',
-
+  ViewBotton: {
+    width: "80%",
+    height: "8%",
+    borderRadius: 30,
+    backgroundColor: colors.viewDashboard,
+    marginTop: "100%",
   },
-  button:{
-width:'23%',
-height:'80%',
-borderRadius:30,
-backgroundColor:'#48C9B0',
-marginLeft:'75%',
-marginTop:'-9%'
+  button: {
+    width: "23%",
+    height: "80%",
+    borderRadius: 30,
+    backgroundColor: colors.bottonDashboard,
+    marginLeft: "75%",
+    marginTop: "-9%",
   },
-  text2:{
-    color:'black',
-    marginLeft:'30%',
-    marginTop:'5%',
+  text2: {
+    color: "black",
+    marginLeft: "30%",
+    marginTop: "5%",
     fontSize: 15,
-    
-
-  }
+  },
 });
 
 export default DashboardScreen;
