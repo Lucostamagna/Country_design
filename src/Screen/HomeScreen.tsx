@@ -6,8 +6,6 @@ import {
   Dimensions,
   Image,
   Text,
-  ImageBackground,
-  TouchableOpacity,
 } from "react-native";
 import Carousel, { Pagination } from "react-native-snap-carousel";
 import { ImageURISource } from "react-native";
@@ -53,33 +51,9 @@ const HomeScreen = () => {
 
   const renderItem = (item: Slide, index: number) => {
     return (
-      <View
-        style={{
-          flex: 1,
-          position: "relative",
-          marginLeft: "7%",
-          marginTop: "2%",
-        }}
-      >
-        <Image
-          source={item.img}
-          style={{
-            width: "45%",
-            height: "60%",
-            borderRadius: 20,
-          }}
-        />
-        <View
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 10,
-            bottom: 0,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+      <View style={styles.view}>
+        <Image source={item.img} style={styles.image} />
+        <View style={styles.viewTitle}>
           <Text style={styles.title}> {item.title}</Text>
           <Text style={styles.description}> {item.description}</Text>
         </View>
@@ -88,22 +62,11 @@ const HomeScreen = () => {
   };
 
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: "white",
-        justifyContent: "center",
-      }}
-    >
+    <View style={styles.viewCarousel}>
       <View style={styles.viewPlace}>
         <Text style={styles.textPlace}> TOP DE LUGARES EN ARGENTINA</Text>
       </View>
-      <View
-        style={{
-          marginTop: "25%",
-          marginBottom: "-9%",
-        }}
-      >
+      <View style={styles.viewPagination}>
         <Pagination
           dotsLength={items.length}
           activeDotIndex={activeIndex}
@@ -128,6 +91,31 @@ const HomeScreen = () => {
 };
 
 const styles = StyleSheet.create({
+  view: {
+    flex: 1,
+    position: "relative",
+    marginLeft: "7%",
+    marginTop: "2%",
+  },
+  image: {
+    width: "45%",
+    height: "60%",
+    borderRadius: 20,
+  },
+  viewTitle: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 10,
+    bottom: 0,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  viewCarousel: {
+    flex: 1,
+    backgroundColor: "white",
+    justifyContent: "center",
+  },
   textContainer: {
     position: "absolute",
     top: 99,
@@ -168,6 +156,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginRight: "80%",
     backgroundColor: "black",
+  },
+  viewPagination: {
+    marginTop: "25%",
+    marginBottom: "-9%",
   },
 });
 
