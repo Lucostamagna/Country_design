@@ -7,8 +7,10 @@ import {
   Image,
   Text,
 } from "react-native";
+
 import Carousel, { Pagination } from "react-native-snap-carousel";
 import { ImageURISource } from "react-native";
+import { useFonts } from "expo-font";
 
 const { height: screenHeight, width: screenWidth } = Dimensions.get("window");
 
@@ -48,11 +50,15 @@ const items: Slide[] = [
 
 const HomeScreen = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+const [fontsLoaded]= useFonts({
+Ultra:require("../../assets/fonts/ultra/Ultra.ttf")
+})
+
 
   const renderItem = (item: Slide, index: number) => {
     return (
       <View style={styles.view}>
-        <Image source={item.img} style={styles.image} />
+        <Image style={styles.image} source={item.img}  />
         <View style={styles.viewTitle}>
           <Text style={styles.title}> {item.title}</Text>
           <Text style={styles.description}> {item.description}</Text>
@@ -71,8 +77,8 @@ const HomeScreen = () => {
           dotsLength={items.length}
           activeDotIndex={activeIndex}
           dotStyle={{
-            width: 30,
-            height: 2,
+            width: 10,
+            height: 3,
             backgroundColor: "black",
           }}
         />
@@ -142,20 +148,23 @@ const styles = StyleSheet.create({
     marginLeft: "10%",
   },
   textPlace: {
+    marginTop: "15%",
+    marginBottom:'-25%',
     fontSize: 19,
   },
   title: {
     color: "white",
-    fontSize: 16,
+    fontSize: 19,
     fontWeight: "bold",
     marginRight: "80%",
+    
   },
   description: {
     color: "white",
     fontSize: 13,
     fontWeight: "bold",
     marginRight: "80%",
-    backgroundColor: "black",
+  
   },
   viewPagination: {
     marginTop: "25%",
