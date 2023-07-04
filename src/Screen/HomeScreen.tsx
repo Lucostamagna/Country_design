@@ -11,6 +11,7 @@ import {
 import Carousel, { Pagination } from "react-native-snap-carousel";
 import { ImageURISource } from "react-native";
 import { useFonts } from "expo-font";
+import DetailCountry from "../Components/DetailCountry";
 
 const { height: screenHeight, width: screenWidth } = Dimensions.get("window");
 
@@ -50,9 +51,9 @@ const items: Slide[] = [
 
 const HomeScreen = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-const [fontsLoaded]= useFonts({
-Ultra:require("../../assets/fonts/ultra/Ultra.ttf")
-})
+// const [fontsLoaded]= useFonts({
+// Regular:require("../../assets/fonts/Regular.ttf")
+// })
 
 
   const renderItem = (item: Slide, index: number) => {
@@ -78,7 +79,7 @@ Ultra:require("../../assets/fonts/ultra/Ultra.ttf")
           activeDotIndex={activeIndex}
           dotStyle={{
             width: 10,
-            height: 3,
+            height: 8,
             backgroundColor: "black",
           }}
         />
@@ -92,6 +93,10 @@ Ultra:require("../../assets/fonts/ultra/Ultra.ttf")
         layout={"default"}
         onSnapToItem={(index) => setActiveIndex(index)}
       />
+
+<View>
+  <DetailCountry/>
+</View>
     </View>
   );
 };
@@ -100,12 +105,13 @@ const styles = StyleSheet.create({
   view: {
     flex: 1,
     position: "relative",
-    marginLeft: "7%",
+    marginLeft: "4%",
     marginTop: "2%",
+   
   },
   image: {
-    width: "45%",
-    height: "60%",
+    width: "47%",
+    height: "63%",
     borderRadius: 20,
   },
   viewTitle: {
