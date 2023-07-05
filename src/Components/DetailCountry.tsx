@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
    
   },
   viewCard:{
-    backgroundColor: "yellow",
+    backgroundColor: "white",
     width:'110%',
     borderRadius: width * 0.03,
     shadowColor: "#000",

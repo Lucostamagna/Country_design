@@ -78,13 +78,13 @@ const HomeScreen = () => {
           dotsLength={items.length}
           activeDotIndex={activeIndex}
           dotStyle={{
-            width: 10,
+            width: 8,
             height: 8,
             backgroundColor: "black",
           }}
         />
       </View>
-<View style={{width:350, height:400, marginBottom:4}}>
+<View style={styles.viewCard}>
       <Carousel
         data={items}
         renderItem={({ item, index }: any) => renderItem(item, index)}
@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
     position: "relative",
     marginLeft: "4%",
     marginTop: "2%",
+    
    
   },
   image: {
@@ -128,14 +129,22 @@ const styles = StyleSheet.create({
   },
   viewCarousel: {
     flex: 1,
-    backgroundColor: "white",
-    justifyContent: "center",
+    backgroundColor: "pink",
+    
   },
+  viewCard:{
+    marginTop:'-6%',
+   
+    width:'100%', 
+    height:'75%',
+     marginBottom:'-49%'
+    },
+  
   textContainer: {
     position: "absolute",
     top: 99,
     width: "50%",
-    left: -30,
+    left: -20,
 
     backgroundColor: "transparent",
     padding: 50,
@@ -151,20 +160,24 @@ const styles = StyleSheet.create({
     fontSize: 13,
     textAlign: "justify",
     color: "black",
+    
   },
   viewPlace: {
-    marginTop: "10%",
+    marginTop: "5%",
     marginLeft: "10%",
+    
   },
   textPlace: {
     marginTop: "15%",
     marginBottom:'-25%',
     fontSize: 19,
+    marginLeft:10
   },
   textPlaceTwo:{
     marginTop: "1%",
     marginBottom:'5%',
     fontSize: 19,
+    fontWeight: "bold",
   },
   title: {
     color: "white",
@@ -182,7 +195,7 @@ const styles = StyleSheet.create({
   },
   viewPagination: {
     marginTop: "25%",
-    marginBottom: "-9%",
+    marginBottom: "2%",
   },
 });
 
