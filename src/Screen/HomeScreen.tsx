@@ -95,6 +95,9 @@ const HomeScreen = () => {
       />
 </View>
 <View >
+
+        <Text style={styles.textPlaceTwo}> ACTIVIDADES E INFORMACIÓN</Text>
+      
   <DetailCountry/>
 </View>
     </View>
@@ -156,6 +159,11 @@ const styles = StyleSheet.create({
   textPlace: {
     marginTop: "15%",
     marginBottom:'-25%',
+    fontSize: 19,
+  },
+  textPlaceTwo:{
+    marginTop: "1%",
+    marginBottom:'5%',
     fontSize: 19,
   },
   title: {
