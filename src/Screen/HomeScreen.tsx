@@ -84,7 +84,7 @@ const HomeScreen = () => {
           }}
         />
       </View>
-
+<View style={{width:350, height:400, marginBottom:4}}>
       <Carousel
         data={items}
         renderItem={({ item, index }: any) => renderItem(item, index)}
@@ -93,8 +93,8 @@ const HomeScreen = () => {
         layout={"default"}
         onSnapToItem={(index) => setActiveIndex(index)}
       />
-
-<View>
+</View>
+<View >
   <DetailCountry/>
 </View>
     </View>

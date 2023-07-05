@@ -45,7 +45,7 @@ const DashboardScreen = () => {
           <Text style={styles.text2}> COMENZAR</Text>
           <TouchableOpacity style={styles.button} activeOpacity={0.8} onPress={goToApp}>
             <Ionicons
-              name="chevron-forward-outline"
+              name={"chevron-forward-outline"}
               size={35}
               color="black"
               marginLeft={25}

@@ -1,20 +1,38 @@
 import React from "react";
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
-
+import { View, Text, FlatList, TouchableOpacity,StyleSheet,Dimensions } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
+const { width, height } = Dimensions.get("window");
 interface SlideProps {
   id: string;
   icono: string;
+  
 }
 const SlideDate: SlideProps[] = [
   {
     id: "1",
-    icono: "book",
+    icono: "earth-outline"
+  },
+  {
+    id: "2",
+    icono: "fast-food-outline"
   },
   {
     id: "3",
-    icono: "pencil",
+    icono: "football-outline"
   },
+  {
+    id: "4",
+    icono: "rainy-outline"
+  },
+  {
+    id: "5",
+    icono: "warning-outline"
+  },
+  {
+    id: "6",
+    icono: "image-outline"
+  },
+
 
 
 
@@ -27,11 +45,20 @@ const Component: React.FC<SlideProps> = ({ icono }) => {
   };
 
   return (
-    <TouchableOpacity onPress={handlePress}>
+    <TouchableOpacity onPress={handlePress} activeOpacity={1}>
+      <View style={styles.cardContainer}>
+      <View style={styles.viewCard}>
       <View
-        style={{ flexDirection: "row", alignItems: "center", marginTop: 100 }}
+        style={styles.card}
       >
-        <Icon name={icono} size={60} />
+       <Ionicons
+        // @ts-ignore
+              name={icono}
+              size={43}
+              marginTop={4}
+            />
+      </View>
+      </View>
       </View>
     </TouchableOpacity>
   );
@@ -42,6 +69,7 @@ const DetailCountry: React.FC = () => {
     <FlatList
       horizontal
       data={SlideDate}
+      showsHorizontalScrollIndicator={false}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
         <Component id={item.id} icono={item.icono} />
@@ -49,4 +77,35 @@ const DetailCountry: React.FC = () => {
     />
   );
 };
+
+const styles = StyleSheet.create({
+  cardContainer: {
+    marginRight: 15, 
+   
+  },
+  viewCard:{
+    backgroundColor: "yellow",
+    width:'110%',
+    borderRadius: width * 0.03,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.23,
+    shadowRadius: 2.62,
+
+    elevation: 4,
+    padding: width * 0.03,
+    marginBottom:4,
+    alignItems:'center'
+  },
+  card:{
+   
+    
+  }
+})
+
+
+
 export default DetailCountry;
