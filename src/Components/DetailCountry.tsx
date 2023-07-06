@@ -57,7 +57,7 @@ const Component: React.FC<SlideProps> = ({ icono }) => {
               name={icono}
               size={43}
               marginTop={4}
-              color='white'
+              color={colors.iconosFlatlist}
             />
       </View>
       </View>

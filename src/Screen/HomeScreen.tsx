@@ -94,10 +94,13 @@ const HomeScreen = () => {
         />
       </View> 
       </View>
-      <View>
+      <View  style={styles.viewText}> 
         <Text style={styles.textPlaceTwo}> TOP ACTIVITIES</Text>
 
-        <DetailCountry />
+        
+      </View>
+      <View>
+      <DetailCountry />
       </View>
     </View>
   );
@@ -117,6 +120,15 @@ const styles = StyleSheet.create({
     borderRadius: 90,
     borderBottomLeftRadius: 1000,
     borderBottomRightRadius: 1000,
+  },
+  viewText:{
+
+width:'90%',
+marginBottom:'2%',
+justifyContent:'center',
+alignItems:'center',
+borderBottomWidth:4,
+borderBottomColor: colors.backgroundImage
   },
   viewTitle: {
     position: "absolute",
