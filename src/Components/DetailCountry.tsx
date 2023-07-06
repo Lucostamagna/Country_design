@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, FlatList, TouchableOpacity,StyleSheet,Dimensions } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { colors } from "../Theme/Colors";
 const { width, height } = Dimensions.get("window");
 interface SlideProps {
   id: string;
@@ -85,7 +86,7 @@ const styles = StyleSheet.create({
    
   },
   viewCard:{
-    backgroundColor: "black",
+    backgroundColor: colors.cardFlatlist,
     width:'110%',
     borderRadius: width * 0.03,
     shadowColor: "#000",
