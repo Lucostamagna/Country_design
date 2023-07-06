@@ -80,7 +80,7 @@ const HomeScreen = () => {
           dotStyle={{
             width: 8,
             height: 8,
-            backgroundColor: "black",
+            backgroundColor: "white",
           }}
         />
       </View>
@@ -94,7 +94,7 @@ const HomeScreen = () => {
         onSnapToItem={(index) => setActiveIndex(index)}
       />
 </View>
-<View >
+<View style={{marginTop:'50%'}}>
 
         <Text style={styles.textPlaceTwo}> ACTIVIDADES E INFORMACIÓN</Text>
       
@@ -110,12 +110,13 @@ const styles = StyleSheet.create({
     position: "relative",
     marginLeft: "4%",
     marginTop: "2%",
+   
     
    
   },
   image: {
     width: "47%",
-    height: "63%",
+    height: "70%",
     borderRadius: 20,
   },
   viewTitle: {
@@ -128,9 +129,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   viewCarousel: {
-    flex: 1,
-    backgroundColor: "pink",
-    
+    height:'70%',
+    backgroundColor:'black',
+    alignItems:'center',
+    zIndex:999,
+    borderBottomRightRadius:500,
+    borderBottomLeftRadius:500    
   },
   viewCard:{
     marginTop:'-6%',
@@ -165,13 +169,15 @@ const styles = StyleSheet.create({
   viewPlace: {
     marginTop: "5%",
     marginLeft: "10%",
+   
     
   },
   textPlace: {
     marginTop: "15%",
     marginBottom:'-25%',
     fontSize: 19,
-    marginLeft:10
+    marginLeft:10,
+    color:'white'
   },
   textPlaceTwo:{
     marginTop: "1%",
