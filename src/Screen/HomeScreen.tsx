@@ -12,6 +12,7 @@ import Carousel, { Pagination } from "react-native-snap-carousel";
 import { ImageURISource } from "react-native";
 import { useFonts } from "expo-font";
 import DetailCountry from "../Components/DetailCountry";
+import { colors } from "../Theme/Colors";
 
 const { height: screenHeight, width: screenWidth } = Dimensions.get("window");
 
@@ -51,15 +52,14 @@ const items: Slide[] = [
 
 const HomeScreen = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-// const [fontsLoaded]= useFonts({
-// Regular:require("../../assets/fonts/Regular.ttf")
-// })
-
+  // const [fontsLoaded]= useFonts({
+  // Regular:require("../../assets/fonts/Regular.ttf")
+  // })
 
   const renderItem = (item: Slide, index: number) => {
     return (
       <View style={styles.view}>
-        <Image style={styles.image} source={item.img}  />
+        <Image style={styles.image} source={item.img} />
         <View style={styles.viewTitle}>
           <Text style={styles.title}> {item.title}</Text>
           <Text style={styles.description}> {item.description}</Text>
@@ -70,36 +70,35 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.viewCarousel}>
-      <View style={styles.viewPlace}>
-        <Text style={styles.textPlace}> TOP DE LUGARES EN ARGENTINA</Text>
-      </View>
-      <View style={styles.viewPagination}>
+      
+      <View style={styles.viewCard}>
+      
+        <Carousel
+          data={items}
+          renderItem={({ item, index }: any) => renderItem(item, index)}
+          sliderWidth={screenWidth}
+          itemWidth={screenHeight}
+          layout={"default"}
+          onSnapToItem={(index) => setActiveIndex(index)}
+        />
+        <View style={{ position: 'absolute', top: 10, alignSelf: 'center' }}>
         <Pagination
           dotsLength={items.length}
           activeDotIndex={activeIndex}
           dotStyle={{
-            width: 8,
-            height: 8,
-            backgroundColor: "white",
+            width: 12,
+            height: 12,
+            borderRadius:50,
+            backgroundColor: "black",
           }}
         />
+      </View> 
       </View>
-<View style={styles.viewCard}>
-      <Carousel
-        data={items}
-        renderItem={({ item, index }: any) => renderItem(item, index)}
-        sliderWidth={screenWidth}
-        itemWidth={screenHeight}
-        layout={"default"}
-        onSnapToItem={(index) => setActiveIndex(index)}
-      />
-</View>
-<View style={{marginTop:'50%'}}>
+      <View>
+        <Text style={styles.textPlaceTwo}> TOP ACTIVITIES</Text>
 
-        <Text style={styles.textPlaceTwo}> ACTIVIDADES E INFORMACIÓN</Text>
-      
-  <DetailCountry/>
-</View>
+        <DetailCountry />
+      </View>
     </View>
   );
 };
@@ -110,14 +109,14 @@ const styles = StyleSheet.create({
     position: "relative",
     marginLeft: "4%",
     marginTop: "2%",
-   
-    
-   
   },
   image: {
-    width: "47%",
-    height: "70%",
-    borderRadius: 20,
+    width: "53%",
+    height: "98%",
+    marginLeft: "-3%",
+    borderRadius: 90,
+    borderBottomLeftRadius: 1000,
+    borderBottomRightRadius: 1000,
   },
   viewTitle: {
     position: "absolute",
@@ -129,21 +128,24 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   viewCarousel: {
-    height:'70%',
-    backgroundColor:'black',
-    alignItems:'center',
-    zIndex:999,
-    borderBottomRightRadius:500,
-    borderBottomLeftRadius:500    
+    flex: 1,
+backgroundColor:colors.background,
+    alignItems: "center",
   },
-  viewCard:{
-    marginTop:'-6%',
-   
-    width:'100%', 
-    height:'75%',
-     marginBottom:'-49%'
-    },
-  
+  viewCard: {
+    position:'relative',
+    marginTop: "-4%",
+    backgroundColor: colors.backgroundImage,
+    width: "100%",
+    height: "60%",
+    marginBottom: "5%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderBottomLeftRadius: 1000,
+    borderBottomRightRadius: 1000,
+  },
+
   textContainer: {
     position: "absolute",
     top: 99,
@@ -164,24 +166,20 @@ const styles = StyleSheet.create({
     fontSize: 13,
     textAlign: "justify",
     color: "black",
-    
   },
   viewPlace: {
     marginTop: "5%",
     marginLeft: "10%",
-   
-    
   },
   textPlace: {
     marginTop: "15%",
-    marginBottom:'-25%',
+    marginBottom: "-25%",
     fontSize: 19,
-    marginLeft:10,
-    color:'white'
+    marginLeft: 10,
   },
-  textPlaceTwo:{
+  textPlaceTwo: {
     marginTop: "1%",
-    marginBottom:'5%',
+    marginBottom: "5%",
     fontSize: 19,
     fontWeight: "bold",
   },
@@ -190,14 +188,12 @@ const styles = StyleSheet.create({
     fontSize: 19,
     fontWeight: "bold",
     marginRight: "80%",
-    
   },
   description: {
     color: "white",
     fontSize: 13,
     fontWeight: "bold",
     marginRight: "80%",
-  
   },
   viewPagination: {
     marginTop: "25%",

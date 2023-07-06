@@ -56,6 +56,7 @@ const Component: React.FC<SlideProps> = ({ icono }) => {
               name={icono}
               size={43}
               marginTop={4}
+              color='white'
             />
       </View>
       </View>
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
    
   },
   viewCard:{
-    backgroundColor: "white",
+    backgroundColor: "black",
     width:'110%',
     borderRadius: width * 0.03,
     shadowColor: "#000",
