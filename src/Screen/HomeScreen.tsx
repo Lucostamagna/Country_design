@@ -127,8 +127,8 @@ width:'90%',
 marginBottom:'2%',
 justifyContent:'center',
 alignItems:'center',
-borderBottomWidth:4,
-borderBottomColor: colors.backgroundImage
+borderBottomWidth:5,
+borderBottomColor:colors.backgroundImage
   },
   viewTitle: {
     position: "absolute",
