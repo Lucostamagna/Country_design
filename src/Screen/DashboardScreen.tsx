@@ -1,11 +1,9 @@
 import React from "react";
 
 import {
-  SafeAreaView,
   View,
   StyleSheet,
-  Dimensions,
-  Image,
+
   Text,
   ImageBackground,
   TouchableOpacity,
@@ -13,7 +11,6 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { colors } from '../Theme/Colors';
-
 
 const DashboardScreen = () => {
   const navigation= useNavigation()
