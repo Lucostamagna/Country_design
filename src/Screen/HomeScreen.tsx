@@ -20,6 +20,7 @@ interface Slide {
   img: ImageURISource;
   title: string;
   description: string;
+  information:string;
 }
 
 const items: Slide[] = [
@@ -27,26 +28,31 @@ const items: Slide[] = [
     title: "BUENOS AIRES",
     img: require("../../assets/pic.jpg"),
     description: "CAPITAL DEL PAIS",
+    information: 'MÁS INFORMACIÓN'
   },
   {
     title: "BARILOCHE",
     img: require("../../assets/Bariloche.jpeg"),
     description: "REGIÓN PATAGÓNICA",
+     information: 'MÁS INFORMACIÓN'
   },
   {
     title: "USHUAIA",
     img: require("../../assets/Ushu.jpeg"),
     description: "FIN DEL MUNDO",
+     information: 'MÁS INFORMACIÓN'
   },
   {
     title: "SALTA",
     img: require("../../assets/Salta.jpeg"),
     description: "NORTE ARGENTINO",
+     information: 'MÁS INFORMACIÓN'
   },
   {
     title: "MENDOZA",
     img: require("../../assets/Mend.jpeg"),
     description: "REGIÓN VINICOLA",
+     information: 'MÁS INFORMACIÓN'
   },
 ];
 
@@ -64,6 +70,7 @@ const HomeScreen = () => {
           <Text style={styles.title}> {item.title}</Text>
           <Text style={styles.description}> {item.description}</Text>
         </View>
+        
       </View>
     );
   };
@@ -121,10 +128,12 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 1000,
     borderBottomRightRadius: 1000,
   },
-  viewText:{
-
+  viewText:
+  {
+    
+marginTop:'10%',
 width:'90%',
-marginBottom:'2%',
+marginBottom:'6%',
 justifyContent:'center',
 alignItems:'center',
 borderBottomWidth:5,
@@ -132,7 +141,7 @@ borderBottomColor:colors.backgroundImage
   },
   viewTitle: {
     position: "absolute",
-    top: 0,
+    top: 180,
     left: 0,
     right: 10,
     bottom: 0,
@@ -197,15 +206,17 @@ backgroundColor:colors.background,
   },
   title: {
     color: "white",
-    fontSize: 19,
+    fontSize: 25,
     fontWeight: "bold",
-    marginRight: "80%",
+    marginRight: "50%",
+    width:'50%'
   },
   description: {
     color: "white",
-    fontSize: 13,
+    fontSize: 17,
     fontWeight: "bold",
-    marginRight: "80%",
+    marginRight: "50%",
+      width:'50%'
   },
   viewPagination: {
     marginTop: "25%",
