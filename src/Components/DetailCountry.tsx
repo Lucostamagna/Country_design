@@ -1,49 +1,51 @@
 import React from "react";
-import { View, Text, FlatList, TouchableOpacity,StyleSheet,Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  StyleSheet,
+  Dimensions,
+} from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { colors } from "../Theme/Colors";
 const { width, height } = Dimensions.get("window");
 interface SlideProps {
   id: string;
   icono: string;
-  information:string
-  
+  information: string;
 }
 const SlideDate: SlideProps[] = [
   {
     id: "1",
     icono: "earth-outline",
-    information:'PLACE'
+    information: "PLACE",
   },
   {
     id: "2",
     icono: "fast-food-outline",
-    information:'FOOD'
+    information: "FOOD",
   },
   {
     id: "3",
     icono: "football-outline",
-    information:'SPORT'
+    information: "SPORT",
   },
   {
     id: "4",
     icono: "rainy-outline",
-    information:'RAINY'
+    information: "RAINY",
   },
   {
     id: "5",
     icono: "warning-outline",
-    information:'PLACE'
+    information: "PLACE",
   },
   {
     id: "6",
     icono: "image-outline",
-    information:'PLACE'
+    information: "PLACE",
   },
-
-
-
-
 ];
 
 const Component: React.FC<SlideProps> = ({ icono, information }) => {
@@ -55,24 +57,20 @@ const Component: React.FC<SlideProps> = ({ icono, information }) => {
   return (
     <TouchableOpacity onPress={handlePress} activeOpacity={1}>
       <View style={styles.cardContainer}>
-      <View style={styles.viewCard}>
-      <View
-        style={styles.card}
-      >
-        
-       <Ionicons
-        // @ts-ignore
+        <View style={styles.viewCard}>
+          <View style={styles.viewIcon}>
+            <Ionicons
+              // @ts-ignore
               name={icono}
               size={43}
               marginTop={4}
               color={colors.iconosFlatlist}
             />
-          
-      </View>
-    <View>
-    <Text> {information}</Text>
-    </View>
-      </View>
+          </View>
+          <View style={styles.viewInformation}>
+            <Text style={styles.textInformation}> {information}</Text>
+          </View>
+        </View>
       </View>
     </TouchableOpacity>
   );
@@ -86,7 +84,11 @@ const DetailCountry: React.FC = () => {
       showsHorizontalScrollIndicator={false}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
-        <Component id={item.id} icono={item.icono} information={item.information} />
+        <Component
+          id={item.id}
+          icono={item.icono}
+          information={item.information}
+        />
       )}
     />
   );
@@ -94,14 +96,12 @@ const DetailCountry: React.FC = () => {
 
 const styles = StyleSheet.create({
   cardContainer: {
-    marginRight: 20, 
-    
-   
+    marginRight: 20,
   },
-  viewCard:{
+  viewCard: {
     backgroundColor: colors.cardFlatlist,
-    width:'120%',
-    height:'40%',
+    width: "120%",
+    height: "40%",
     borderRadius: width * 0.03,
     shadowColor: "#000",
     shadowOffset: {
@@ -113,15 +113,31 @@ const styles = StyleSheet.create({
 
     elevation: 4,
     padding: width * 0.03,
-    marginBottom:4,
-    alignItems:'center'
+    marginBottom: 4,
+    alignItems: "center",
   },
-  card:{
-   
-    
-  }
-})
-
-
+  viewInformation: {
+    marginTop: 18,
+    width: "117%",
+    height: "35%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  viewIcon: {
+    backgroundColor: "#4A235A",
+    width: "130%",
+    height: "70%",
+    marginTop: -9,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 5,
+    borderBottomLeftRadius: 1000,
+    borderBottomRightRadius: 1000,
+  },
+  textInformation: {
+    fontWeight: "bold",
+    fontSize: 15,
+  },
+});
 
 export default DetailCountry;
