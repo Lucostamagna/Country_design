@@ -62,7 +62,7 @@ const Component: React.FC<SlideProps> = ({ icono, information }) => {
             <Ionicons
               // @ts-ignore
               name={icono}
-              size={43}
+              size={50}
               marginTop={4}
               color={colors.iconosFlatlist}
             />
@@ -79,7 +79,7 @@ const Component: React.FC<SlideProps> = ({ icono, information }) => {
 const DetailCountry: React.FC = () => {
   return (
     <FlatList
-      horizontal
+      
       data={SlideDate}
       showsHorizontalScrollIndicator={false}
       keyExtractor={(item) => item.id}
@@ -96,12 +96,15 @@ const DetailCountry: React.FC = () => {
 
 const styles = StyleSheet.create({
   cardContainer: {
-    marginRight: 20,
+   marginBottom:5,
+    marginHorizontal:20,
+    flexDirection:'row'
   },
   viewCard: {
     backgroundColor: colors.cardFlatlist,
-    width: "120%",
-    height: "40%",
+    width: "100%",
+    height: "95%",
+    
     borderRadius: width * 0.03,
     shadowColor: "#000",
     shadowOffset: {
@@ -110,29 +113,22 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.23,
     shadowRadius: 2.62,
-
+    flexDirection:'row',
     elevation: 4,
     padding: width * 0.03,
-    marginBottom: 4,
+    marginBottom: 6,
     alignItems: "center",
   },
   viewInformation: {
-    marginTop: 18,
-    width: "117%",
-    height: "35%",
-    justifyContent: "center",
-    alignItems: "center",
+    // marginTop: 18,
+    // width: "117%",
+    // height: "35%",
+    // justifyContent: "center",
+    // alignItems: "center",
   },
   viewIcon: {
-    backgroundColor: "#4A235A",
-    width: "130%",
-    height: "70%",
-    marginTop: -9,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 5,
-    borderBottomLeftRadius: 1000,
-    borderBottomRightRadius: 1000,
+  marginHorizontal:10
+  
   },
   textInformation: {
     fontWeight: "bold",

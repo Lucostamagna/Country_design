@@ -101,12 +101,12 @@ const HomeScreen = () => {
         />
       </View> 
       </View>
-      <View  style={styles.viewText}> 
+      <View  > 
         <Text style={styles.textPlaceTwo}> TOP ACTIVITIES</Text>
 
         
       </View>
-      <View >
+      <View style={{width:'100%', height:'30%'}}>
       <DetailCountry />
       </View>
     </View>
@@ -213,6 +213,7 @@ backgroundColor:colors.background,
     marginBottom: "5%",
     fontSize: 19,
     fontWeight: "bold",
+    marginLeft:'-45%'
   },
   title: {
     color: "white",
