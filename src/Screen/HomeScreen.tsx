@@ -106,7 +106,7 @@ const HomeScreen = () => {
 
         
       </View>
-      <View>
+      <View >
       <DetailCountry />
       </View>
     </View>
@@ -128,16 +128,26 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 1000,
     borderBottomRightRadius: 1000,
   },
-  viewText:
-  {
-    
+  viewText:{
+    backgroundColor:colors.viewText,
 marginTop:'10%',
-width:'90%',
+width:'98%',
+height:'10%',
 marginBottom:'6%',
 justifyContent:'center',
 alignItems:'center',
-borderBottomWidth:5,
-borderBottomColor:colors.backgroundImage
+borderRadius:5,
+
+shadowColor: "#000",
+shadowOffset: {
+  width: 0,
+  height: 2,
+},
+shadowOpacity: 0.23,
+shadowRadius: 2.62,
+
+elevation: 4,
+padding: 4
   },
   viewTitle: {
     position: "absolute",
