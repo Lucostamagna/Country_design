@@ -13,6 +13,7 @@ import { ImageURISource } from "react-native";
 import { useFonts } from "expo-font";
 import DetailCountry from "../Components/DetailCountry";
 import { colors } from "../Theme/Colors";
+import Animation from "../Components/Animation";
 
 const { height: screenHeight, width: screenWidth } = Dimensions.get("window");
 
@@ -20,7 +21,7 @@ interface Slide {
   img: ImageURISource;
   title: string;
   description: string;
-  information:string;
+  information: string;
 }
 
 const items: Slide[] = [
@@ -28,31 +29,31 @@ const items: Slide[] = [
     title: "BUENOS AIRES",
     img: require("../../assets/pic.jpg"),
     description: "CAPITAL DEL PAIS",
-    information: 'MÁS INFORMACIÓN'
+    information: "MÁS INFORMACIÓN",
   },
   {
     title: "BARILOCHE",
     img: require("../../assets/Bariloche.jpeg"),
     description: "REGIÓN PATAGÓNICA",
-     information: 'MÁS INFORMACIÓN'
+    information: "MÁS INFORMACIÓN",
   },
   {
     title: "USHUAIA",
     img: require("../../assets/Ushu.jpeg"),
     description: "FIN DEL MUNDO",
-     information: 'MÁS INFORMACIÓN'
+    information: "MÁS INFORMACIÓN",
   },
   {
     title: "SALTA",
     img: require("../../assets/Salta.jpeg"),
     description: "NORTE ARGENTINO",
-     information: 'MÁS INFORMACIÓN'
+    information: "MÁS INFORMACIÓN",
   },
   {
     title: "MENDOZA",
     img: require("../../assets/Mend.jpeg"),
     description: "REGIÓN VINICOLA",
-     information: 'MÁS INFORMACIÓN'
+    information: "MÁS INFORMACIÓN",
   },
 ];
 
@@ -70,16 +71,13 @@ const HomeScreen = () => {
           <Text style={styles.title}> {item.title}</Text>
           <Text style={styles.description}> {item.description}</Text>
         </View>
-        
       </View>
     );
   };
 
   return (
     <View style={styles.viewCarousel}>
-      
       <View style={styles.viewCard}>
-      
         <Carousel
           data={items}
           renderItem={({ item, index }: any) => renderItem(item, index)}
@@ -88,26 +86,27 @@ const HomeScreen = () => {
           layout={"default"}
           onSnapToItem={(index) => setActiveIndex(index)}
         />
-        <View style={{ position: 'absolute', top: 10, alignSelf: 'center' }}>
-        <Pagination
-          dotsLength={items.length}
-          activeDotIndex={activeIndex}
-          dotStyle={{
-            width: 12,
-            height: 12,
-            borderRadius:50,
-            backgroundColor: "black",
-          }}
-        />
-      </View> 
+        <View style={{ position: "absolute", top: 10, alignSelf: "center" }}>
+          <Pagination
+            dotsLength={items.length}
+            activeDotIndex={activeIndex}
+            dotStyle={{
+              width: 12,
+              height: 12,
+              borderRadius: 50,
+              backgroundColor: "black",
+            }}
+          />
+        </View>
       </View>
-      <View  > 
+      <View style={{ marginTop: 1, width: "100%", marginLeft: 350 }}>
+        <Animation />
+      </View>
+      <View>
         <Text style={styles.textPlaceTwo}> TOP ACTIVITIES</Text>
-
-        
       </View>
-      <View style={{width:'100%', height:'30%'}}>
-      <DetailCountry />
+      <View style={{ width: "100%", height: "30%" }}>
+        <DetailCountry />
       </View>
     </View>
   );
@@ -128,26 +127,26 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 1000,
     borderBottomRightRadius: 1000,
   },
-  viewText:{
-    backgroundColor:colors.viewText,
-marginTop:'10%',
-width:'98%',
-height:'10%',
-marginBottom:'6%',
-justifyContent:'center',
-alignItems:'center',
-borderRadius:5,
+  viewText: {
+    backgroundColor: colors.viewText,
+    marginTop: "10%",
+    width: "98%",
+    height: "10%",
+    marginBottom: "6%",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 5,
 
-shadowColor: "#000",
-shadowOffset: {
-  width: 0,
-  height: 2,
-},
-shadowOpacity: 0.23,
-shadowRadius: 2.62,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.23,
+    shadowRadius: 2.62,
 
-elevation: 4,
-padding: 4
+    elevation: 4,
+    padding: 4,
   },
   viewTitle: {
     position: "absolute",
@@ -160,11 +159,11 @@ padding: 4
   },
   viewCarousel: {
     flex: 1,
-backgroundColor:colors.background,
+    backgroundColor: colors.background,
     alignItems: "center",
   },
   viewCard: {
-    position:'relative',
+    position: "relative",
     marginTop: "-4%",
     backgroundColor: colors.backgroundImage,
     width: "100%",
@@ -213,21 +212,21 @@ backgroundColor:colors.background,
     marginBottom: "5%",
     fontSize: 19,
     fontWeight: "bold",
-    marginLeft:'-45%'
+    marginLeft: "-45%",
   },
   title: {
     color: "white",
     fontSize: 25,
     fontWeight: "bold",
     marginRight: "50%",
-    width:'50%'
+    width: "50%",
   },
   description: {
     color: "white",
     fontSize: 17,
     fontWeight: "bold",
     marginRight: "50%",
-      width:'50%'
+    width: "50%",
   },
   viewPagination: {
     marginTop: "25%",
