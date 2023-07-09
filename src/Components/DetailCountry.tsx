@@ -75,7 +75,7 @@ const Component: React.FC<SlideProps> = ({ icono, information }) => {
               name="return-down-forward-outline"
               size={50}
               marginTop={4}
-              color={"black"}
+              color={colors.iconosFlatlist}
             />
           </View>
          
