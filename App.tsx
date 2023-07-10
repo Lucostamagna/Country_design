@@ -9,9 +9,7 @@ import { ThemeProvider } from './src/Context/ThemeContext';
 export default function App() {
   return (
    <AppState>
-    <NavigationContainer>
       <Navigator/>
-    </NavigationContainer>
     </AppState>
   );
 }
