@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useContext} from "react";
+import { ThemeContext } from "../Context/ThemeContext";
 import {
   View,
   Text,
@@ -53,6 +54,7 @@ const Component: React.FC<SlideProps> = ({ icono, information }) => {
     // Lógica para navegar a la pantalla de información
     // Puedes pasar información adicional utilizando navigation.navigate('Informacion', { datos })
   };
+  const {theme}= useContext(ThemeContext)
 
   return (
     <TouchableOpacity onPress={handlePress} activeOpacity={1}>

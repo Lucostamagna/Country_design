@@ -4,7 +4,7 @@ export interface ThemeState extends Theme {
   currentTheme: "light" | "dark";
 }
 
-const lightTheme: ThemeState = {
+export const lightTheme: ThemeState = {
   currentTheme: "light",
   dark: false,
 
@@ -18,14 +18,16 @@ const lightTheme: ThemeState = {
   },
 };
 
-type ThemeAction = { type: "ligth_theme" } | { type: "dark_theme" };
+type ThemeAction = 
+| { type: "set_ligth_theme" } 
+| { type: "set_dark_theme" };
 
 export const ThemeReducer = (
   state: ThemeState,
   action: ThemeAction
 ): ThemeState => {
   switch (action.type) {
-    case "ligth_theme":
+    case "set_ligth_theme":
       return {
         ...lightTheme,
       };
