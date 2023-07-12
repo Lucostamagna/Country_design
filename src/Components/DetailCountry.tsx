@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-
 const { width, height } = Dimensions.get("window");
 interface SlideProps {
   id: string;
@@ -88,7 +87,7 @@ const Component: React.FC<SlideProps> = ({ icono, information }) => {
               name={icono}
               size={50}
               marginTop={4}
-              color={colors.background}
+              color={colors.notification}
             />
           </View>
 
@@ -99,7 +98,7 @@ const Component: React.FC<SlideProps> = ({ icono, information }) => {
               name="return-down-forward-outline"
               size={50}
               marginTop={4}
-              color={colors.background}
+              color={colors.notification}
             />
           </View>
         </View>

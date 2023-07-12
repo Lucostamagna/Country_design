@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   SafeAreaView,
   View,
@@ -12,8 +12,8 @@ import Carousel, { Pagination } from "react-native-snap-carousel";
 import { ImageURISource } from "react-native";
 import { useFonts } from "expo-font";
 import DetailCountry from "../Components/DetailCountry";
-import { colors } from "../Theme/Colors";
 import Animation from "../Components/Animation";
+import { ThemeContext } from "../Context/ThemeContext";
 
 const { height: screenHeight, width: screenWidth } = Dimensions.get("window");
 
@@ -62,6 +62,10 @@ const HomeScreen = () => {
   // const [fontsLoaded]= useFonts({
   // Regular:require("../../assets/fonts/Regular.ttf")
   // })
+  const {
+    theme: { colors },
+  } = useContext(ThemeContext);
+
 
   const renderItem = (item: Slide, index: number) => {
     return (
@@ -76,8 +80,25 @@ const HomeScreen = () => {
   };
 
   return (
-    <View style={styles.viewCarousel}>
-      <View style={styles.viewCard}>
+    <View style={{ 
+      flex: 1,
+      backgroundColor: colors.background,
+      alignItems: "center",
+      
+      }}>
+      <View style={{
+         position: "relative",
+         marginTop: "-4%",
+         backgroundColor:colors.primary,
+         width: "100%",
+         height: "60%",
+         marginBottom: "5%",
+         display: "flex",
+         justifyContent: "center",
+         alignItems: "center",
+         borderBottomLeftRadius: 1000,
+         borderBottomRightRadius: 1000,
+      }}>
         <Carousel
           data={items}
           renderItem={({ item, index }: any) => renderItem(item, index)}
@@ -128,7 +149,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 1000,
   },
   viewText: {
-    backgroundColor: colors.viewText,
+    backgroundColor: 'yellow',
     marginTop: "10%",
     width: "98%",
     height: "10%",
@@ -158,23 +179,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   viewCarousel: {
-    flex: 1,
-    backgroundColor: colors.background,
-    alignItems: "center",
+   
   },
-  viewCard: {
-    position: "relative",
-    marginTop: "-4%",
-    backgroundColor: colors.backgroundImage,
-    width: "100%",
-    height: "60%",
-    marginBottom: "5%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    borderBottomLeftRadius: 1000,
-    borderBottomRightRadius: 1000,
-  },
+  
 
   textContainer: {
     position: "absolute",

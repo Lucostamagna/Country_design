@@ -9,12 +9,12 @@ export const lightTheme: ThemeState = {
   dark: false,
 
   colors: {
-    primary: "blue",
-    background: "red",
+    primary: "#F39C12",
+    background: "#FEF5E7",
     card: "#F1C40F",
     text: "yellow",
     border: "yellow",
-    notification: "yellow",
+    notification: "#000000",
   },
 };
 export const darkTheme: ThemeState = {
@@ -22,12 +22,12 @@ export const darkTheme: ThemeState = {
   dark: true,
 
   colors: {
-    primary: "red",
-    background: "blue",
+    primary: "#273746",
+    background: "#D5DBDB",
     card: "#34495E",
     text: "red",
     border: "green",
-    notification: "orange",
+    notification: "#FFFFFF",
   },
 };
 
