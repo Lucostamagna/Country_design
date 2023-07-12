@@ -11,10 +11,23 @@ export const lightTheme: ThemeState = {
   colors: {
     primary: "blue",
     background: "red",
-    card: "yellow",
+    card: "#F1C40F",
     text: "yellow",
     border: "yellow",
     notification: "yellow",
+  },
+};
+export const darkTheme: ThemeState = {
+  currentTheme: "dark",
+  dark: true,
+
+  colors: {
+    primary: "red",
+    background: "blue",
+    card: "#34495E",
+    text: "red",
+    border: "green",
+    notification: "orange",
   },
 };
 
@@ -31,6 +44,10 @@ export const ThemeReducer = (
       return {
         ...lightTheme,
       };
+      case "set_dark_theme":
+        return {
+          ...darkTheme,
+        };
     default:
       return state;
   }

@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { ThemeContext } from "../Context/ThemeContext";
 import {
   View,
@@ -9,7 +9,8 @@ import {
   Dimensions,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { colors } from "../Theme/Colors";
+
+
 const { width, height } = Dimensions.get("window");
 interface SlideProps {
   id: string;
@@ -54,22 +55,43 @@ const Component: React.FC<SlideProps> = ({ icono, information }) => {
     // Lógica para navegar a la pantalla de información
     // Puedes pasar información adicional utilizando navigation.navigate('Informacion', { datos })
   };
-  const {theme}= useContext(ThemeContext)
+  const {
+    theme: { colors },
+  } = useContext(ThemeContext);
 
   return (
     <TouchableOpacity onPress={handlePress} activeOpacity={1}>
       <View style={styles.cardContainer}>
-        <View style={styles.viewCard}>
+        <View
+          style={{
+            width: "100%",
+            height: "95%",
+            backgroundColor: colors.card,
+            borderRadius: width * 0.03,
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.23,
+            shadowRadius: 2.62,
+            flexDirection: "row",
+            elevation: 4,
+            padding: width * 0.03,
+            marginBottom: 6,
+            alignItems: "center",
+          }}
+        >
           <View style={styles.viewIcon}>
             <Ionicons
               // @ts-ignore
               name={icono}
               size={50}
               marginTop={4}
-              color={colors.iconosFlatlist}
+              color={colors.background}
             />
           </View>
-          
+
           <View style={styles.viewInformation}>
             <Text style={styles.textInformation}> {information}</Text>
             <Ionicons
@@ -77,10 +99,9 @@ const Component: React.FC<SlideProps> = ({ icono, information }) => {
               name="return-down-forward-outline"
               size={50}
               marginTop={4}
-              color={colors.iconosFlatlist}
+              color={colors.background}
             />
           </View>
-         
         </View>
       </View>
     </TouchableOpacity>
@@ -110,39 +131,20 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     flexDirection: "row",
   },
-  viewCard: {
-    backgroundColor: colors.cardFlatlist,
-    width: "100%",
-    height: "95%",
-    borderRadius: width * 0.03,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.23,
-    shadowRadius: 2.62,
-    flexDirection: "row",
-    elevation: 4,
-    padding: width * 0.03,
-    marginBottom: 6,
-    alignItems: "center",
-  },
+
   viewInformation: {
-  marginHorizontal:160,
-  width:'100%',
-  flexDirection:'row'
+    marginHorizontal: 160,
+    width: "100%",
+    flexDirection: "row",
   },
   viewIcon: {
     marginHorizontal: 10,
     flexDirection: "row",
-  
-   
   },
   textInformation: {
     fontWeight: "bold",
     fontSize: 15,
-    marginTop:10
+    marginTop: 10,
   },
 });
 

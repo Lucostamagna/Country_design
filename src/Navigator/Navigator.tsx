@@ -10,15 +10,15 @@ import { NavigationContainer } from "@react-navigation/native";
 const Stack = createStackNavigator();
 export const Navigator = () => {
 
-const {theme}= useContext(ThemeContext)
+
 
 
   return (
-    <NavigationContainer
-    theme={theme}>
+    <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
+       
         }}
       >
         <Stack.Screen name="Dashboard" component={DashboardScreen} />
