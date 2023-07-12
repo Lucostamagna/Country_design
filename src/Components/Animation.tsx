@@ -10,17 +10,15 @@ const Animation = () => {
   return (
     <View
       style={{
-        width: "80%",
+        width: "70%",
         marginLeft: 40,
+        marginTop: -35,
       }}
     >
       <View
         style={{
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "row",
-          marginHorizontal: 10,
-          width: "80%",
+          width: "40%",
+          marginLeft: 130,
         }}
       >
         <TouchableOpacity onPress={setDarkTheme} activeOpacity={0.8}>
@@ -33,7 +31,14 @@ const Animation = () => {
             source={require("../../assets/Animation/animation_ljz3ky5t.json")}
           />
         </TouchableOpacity>
+      </View>
 
+      <View
+        style={{
+          width: "40%",
+          marginLeft: 130,
+        }}
+      >
         <TouchableOpacity onPress={setLightTheme} activeOpacity={0.8}>
           <LottieView
             autoPlay={true}
