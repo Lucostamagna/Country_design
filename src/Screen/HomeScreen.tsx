@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 import Carousel, { Pagination } from "react-native-snap-carousel";
-import { ImageURISource } from "react-native";
+
 import { useFonts } from "expo-font";
 import DetailCountry from "../Components/DetailCountry";
 import Animation from "../Components/Animation";
@@ -18,7 +18,7 @@ import { ThemeContext } from "../Context/ThemeContext";
 const { height: screenHeight, width: screenWidth } = Dimensions.get("window");
 
 interface Slide {
-  img: ImageURISource;
+  img: any;
   title: string;
   description: string;
   information: string;
@@ -107,7 +107,7 @@ const HomeScreen = () => {
           layout={"default"}
           onSnapToItem={(index) => setActiveIndex(index)}
         />
-        <View style={{ position: "absolute", top: 10, alignSelf: "center" }}>
+        <View style={{ position: "absolute", top: 20, alignSelf: "center" }}>
           <Pagination
             dotsLength={items.length}
             activeDotIndex={activeIndex}
@@ -115,7 +115,7 @@ const HomeScreen = () => {
               width: 12,
               height: 12,
               borderRadius: 50,
-              backgroundColor: "black",
+              backgroundColor: "white",
             }}
           />
         </View>
@@ -124,7 +124,7 @@ const HomeScreen = () => {
         <Animation />
       </View>
       <View>
-        <Text style={styles.textPlaceTwo}> TOP ACTIVITIES</Text>
+        <Text style={styles.textPlaceTwo}> TOP DE ACTIVIDADES </Text>
       </View>
       <View style={{ width: "100%", height: "30%" }}>
         <DetailCountry />
@@ -178,10 +178,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  viewCarousel: {
-   
-  },
-  
+ 
 
   textContainer: {
     position: "absolute",

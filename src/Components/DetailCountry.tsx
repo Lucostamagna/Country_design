@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   Dimensions,
+  Alert,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
@@ -37,29 +38,32 @@ const SlideDate: SlideProps[] = [
     icono: "rainy-outline",
     information: "RAINY",
   },
-  {
-    id: "5",
-    icono: "warning-outline",
-    information: "PLACE",
-  },
-  {
-    id: "6",
-    icono: "image-outline",
-    information: "PLACE",
-  },
+ 
+ 
 ];
 
-const Component: React.FC<SlideProps> = ({ icono, information }) => {
+const Component: React.FC<SlideProps> = ({ id, icono, information }) => {
   const handlePress = () => {
-    // Lógica para navegar a la pantalla de información
-    // Puedes pasar información adicional utilizando navigation.navigate('Informacion', { datos })
+   
   };
-  const {
-    theme: { colors },
-  } = useContext(ThemeContext);
+  const {theme: { colors }} = useContext(ThemeContext);
+
+
+  const showAlert =()=>{
+    Alert.alert('Error', 'Información no disponible', [
+      {
+        text: 'Cancelar',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+    ],
+   
+    )
+  }
+
 
   return (
-    <TouchableOpacity onPress={handlePress} activeOpacity={1}>
+    <TouchableOpacity onPress={showAlert} activeOpacity={1}>
       <View style={styles.cardContainer}>
         <View
           style={{

@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { colors } from '../Theme/Colors';
+
 
 const DashboardScreen = () => {
   const navigation= useNavigation()
@@ -88,14 +88,14 @@ const styles = StyleSheet.create({
     width: "80%",
     height: "8%",
     borderRadius: 30,
-    backgroundColor: colors.viewDashboard,
+    backgroundColor: 'red',
     marginTop: "100%",
   },
   button: {
     width: "23%",
     height: "80%",
     borderRadius: 30,
-    backgroundColor: colors.bottonDashboard,
+    backgroundColor: 'blue',
     marginLeft: "75%",
     marginTop: "-9%",
   },
