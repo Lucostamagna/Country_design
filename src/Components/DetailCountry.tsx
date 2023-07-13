@@ -21,22 +21,22 @@ const SlideDate: SlideProps[] = [
   {
     id: "1",
     icono: "earth-outline",
-    information: "PLACE",
+    information: "UBICACIÓN",
   },
   {
     id: "2",
     icono: "fast-food-outline",
-    information: "FOOD",
+    information: "COMIDAS",
   },
   {
     id: "3",
     icono: "football-outline",
-    information: "SPORT",
+    information: "DEPORTES",
   },
   {
     id: "4",
     icono: "rainy-outline",
-    information: "RAINY",
+    information: "CLIMA",
   },
  
  
@@ -136,12 +136,13 @@ const styles = StyleSheet.create({
   },
 
   viewInformation: {
-    marginHorizontal: 160,
+    marginHorizontal: 140,
     width: "100%",
     flexDirection: "row",
   },
   viewIcon: {
-    marginHorizontal: 10,
+    marginTop:5,
+    marginHorizontal: 5,
     flexDirection: "row",
   },
   textInformation: {

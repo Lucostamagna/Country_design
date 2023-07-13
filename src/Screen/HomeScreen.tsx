@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useCallback } from "react";
 import {
   SafeAreaView,
   View,
@@ -14,8 +14,9 @@ import { useFonts } from "expo-font";
 import DetailCountry from "../Components/DetailCountry";
 import Animation from "../Components/Animation";
 import { ThemeContext } from "../Context/ThemeContext";
-
+import * as SplashScreen from 'expo-splash-screen';
 const { height: screenHeight, width: screenWidth } = Dimensions.get("window");
+SplashScreen.preventAutoHideAsync();
 
 interface Slide {
   img: any;
@@ -59,12 +60,21 @@ const items: Slide[] = [
 
 const HomeScreen = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  // const [fontsLoaded]= useFonts({
-  // Regular:require("../../assets/fonts/Regular.ttf")
-  // })
+  const [fontsLoaded]= useFonts({
+  Regular:require("../../assets/fonts/Fasthand/Fasthand-Regular.ttf")
+ })
   const {
     theme: { colors },
   } = useContext(ThemeContext);
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
 
   const renderItem = (item: Slide, index: number) => {
@@ -80,6 +90,7 @@ const HomeScreen = () => {
   };
 
   return (
+    <View onLayout={onLayoutRootView}>
     <View style={{ 
       flex: 1,
       backgroundColor: colors.background,
@@ -124,11 +135,12 @@ const HomeScreen = () => {
         <Animation />
       </View>
       <View>
-        <Text style={styles.textPlaceTwo}> TOP DE ACTIVIDADES </Text>
+        <Text style={{fontFamily:'Regular', fontSize:25, }}> TOP DE ACTIVIDADES </Text>
       </View>
       <View style={{ width: "100%", height: "30%" }}>
         <DetailCountry />
       </View>
+    </View>
     </View>
   );
 };
