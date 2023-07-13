@@ -66,15 +66,15 @@ const HomeScreen = () => {
   const {
     theme: { colors },
   } = useContext(ThemeContext);
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
+  // const onLayoutRootView = useCallback(async () => {
+  //   if (fontsLoaded) {
+  //     await SplashScreen.hideAsync();
+  //   }
+  // }, [fontsLoaded]);
 
-  if (!fontsLoaded) {
-    return null;
-  }
+  // if (!fontsLoaded) {
+  //   return null;
+  // }
 
 
   const renderItem = (item: Slide, index: number) => {
@@ -90,7 +90,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <View onLayout={onLayoutRootView}>
+    
     <View style={{ 
       flex: 1,
       backgroundColor: colors.background,
@@ -141,7 +141,7 @@ const HomeScreen = () => {
         <DetailCountry />
       </View>
     </View>
-    </View>
+   
   );
 };
 
